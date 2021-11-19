@@ -1,4 +1,4 @@
-# NFT with hardhat
+# NFT with hardhat and truffle
 
 This project demonstrates a basic NFT with Hardhat and Truffle. 
 
