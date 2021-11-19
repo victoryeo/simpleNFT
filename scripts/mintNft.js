@@ -25,10 +25,8 @@ async function mintNFT(tokenURI) {
   //get latest nonce
   const nonce = await web3.eth.getTransactionCount(accounts[0], "latest")
 
-  //const tokenID = await nftInst.methods.mintNFT(accounts[0], tokenURI)
-  //console.log(tokenID)
-  //const uri = await nftInst.methods.tokenURI(tokenID).call()
-  //console.log(uri)
+  //const tokenId = await nftInst.methods.mintNFT(accounts[0], tokenURI)
+  //console.log(tokenId)
 
   //the transaction
   const tx = {
@@ -39,31 +37,23 @@ async function mintNFT(tokenURI) {
     data: nftInst.methods.mintNFT(accounts[0], tokenURI).encodeABI(),
   }
 
-  const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
-
-  signPromise
-    .then((signedTx) => {
-      web3.eth.sendSignedTransaction(
-        signedTx.rawTransaction,
-        function (err, hash) {
-          if (!err) {
-            console.log(
-              "The hash of your transaction is: ",
-              hash,
-              "\nCheck Mempool to view the status of your transaction!"
-            )
-          } else {
-            console.log(
-              "Something went wrong when submitting your transaction:",
-              err
-            )
-          }
-        }
+  try {
+    const signedTx = await web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
+    const hash = await web3.eth.sendSignedTransaction(signedTx.rawTransaction)      
+    if (hash) {
+      console.log(
+        "The hash of your transaction is: ",
+        hash.transactionHash,
+        "\nCheck Mempool to view the status of your transaction!"
       )
-    })
-    .catch((err) => {
+      // hardcode the tokenId to one
+      const tokenId = 1
+      const uri = await nftInst.methods.tokenURI(tokenId).call()
+      console.log(`token URI: ${uri}`)
+    }
+  } catch(err) {
       console.log("Promise failed:", err)
-    })
+  }
 }
 
 mintNFT(
