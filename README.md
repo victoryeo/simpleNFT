@@ -17,3 +17,8 @@ truffle
 truffle compile
 truffle migrate
 ```
+
+to mint NFT, run
+```
+node src/index.js
+```
