@@ -20,5 +20,5 @@ truffle migrate
 
 to mint NFT, run
 ```
-node src/index.js
+node scripts/mintNft.js
 ```
