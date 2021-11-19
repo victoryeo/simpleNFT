@@ -22,3 +22,8 @@ to mint NFT, run
 ```
 node scripts/mintNft.js
 ```
+
+Sample output is:
+The hash of your transaction is:  0x9dc23c0549219b8f2303d24b04b45e0daba5b578a789581cfd21899cd7c572ff 
+Check Mempool to view the status of your transaction!
+token URI: https://gateway.pinata.cloud/ipfs/QmYueiuRNmL4MiA2GwtVMm6ZagknXnSpQnB3z2gWbz36hP
