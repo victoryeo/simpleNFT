@@ -34,8 +34,7 @@ const simNFT = new ethers.Contract(
 
 const main = async () => {
   try {
-    //const accounts = await provider.listAccounts();
-    //console.log(accounts[0])
+
     const transaction = await simNFT.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmNNaRsvHaYr72Ce1KXJDdNX4UCxw66yHe7ECyMwvRUiHE")
     console.log(transaction)
   } 
