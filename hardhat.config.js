@@ -30,10 +30,10 @@ module.exports = {
     development: {
       url: "http://127.0.0.1:9545"
     },
-    //ropsten: {
-    //  url: API_URL,
-    //  accounts: [`0x${PRIVATE_KEY}`]
-    //},
+    rinkeby: {
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY}`]
+    },
     hardhat: {},
   },
 };
