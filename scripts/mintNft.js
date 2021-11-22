@@ -1,29 +1,42 @@
 const Web3 = require('web3')
 require('dotenv').config()
 
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
+
 const ganachehost = 'http://localhost:9545'
 
 // example web3 using testnet
-const web3 = new Web3(new Web3.providers.HttpProvider(ganachehost))
+//const web3 = new Web3(new Web3.providers.HttpProvider(ganachehost))
+
+// example web3 using infura
+const INFURA_PROJ_ID = process.env.INFURA_PROJ_ID
+
+const provider = new HDWalletProvider(mnemonic,
+  `https://rinkeby.infura.io/v3/${INFURA_PROJ_ID}`);
+  
+const web3 = new Web3(provider);
 
 const nftContract = require("../artifacts/contracts/simNFT.sol/simNFT.json");
 
 // nft contract address
-const nftAddress = "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab"
+const nftAddress = process.env.NFT_ADDRESS;
 
 let nftInst = new web3.eth.Contract(
   nftContract.abi, nftAddress
 )
 
-const API_URL = process.env.API_URL;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 async function mintNFT(tokenURI) {
   let accounts = await web3.eth.getAccounts()
+  //console.log(accounts[0])
   
   //get latest nonce
   const nonce = await web3.eth.getTransactionCount(accounts[0], "latest")
+  //console.log(nonce)
 
   //const tokenId = await nftInst.methods.mintNFT(accounts[0], tokenURI)
   //console.log(tokenId)
