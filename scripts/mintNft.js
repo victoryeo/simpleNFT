@@ -71,5 +71,5 @@ async function mintNFT(tokenURI) {
 
 mintNFT(
   // metadata hashcode QmYueiuRNmL4....is from pinata
-  "https://gateway.pinata.cloud/ipfs/QmYueiuRNmL4MiA2GwtVMm6ZagknXnSpQnB3z2gWbz36hP"
+  "https://gateway.pinata.cloud/ipfs/QmNNaRsvHaYr72Ce1KXJDdNX4UCxw66yHe7ECyMwvRUiHE"
 )
