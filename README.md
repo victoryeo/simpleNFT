@@ -9,7 +9,8 @@ npx hardhat compile
 npx hardhat clean
 npx hardhat test
 npx hardhat node
-npx hardhat run scripts/deploy.js.js --network development
+npx hardhat run scripts/deploy.js --network development
+npx hardhat run scripts/deploy.js --network rinkeby
 ```
 
 truffle
