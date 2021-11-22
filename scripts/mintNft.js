@@ -27,7 +27,6 @@ let nftInst = new web3.eth.Contract(
   nftContract.abi, nftAddress
 )
 
-const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 async function mintNFT(tokenURI) {
