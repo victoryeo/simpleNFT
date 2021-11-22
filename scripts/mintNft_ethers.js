@@ -9,8 +9,17 @@ const provider = ethers.getDefaultProvider("rinkeby", {
   infura: process.env.API_URL,
 });
 
+// two alternative way of getting infura provider for rinkeby testnet
+const INFURA_PROJ_ID = process.env.INFURA_PROJ_ID
+const provider2 = new ethers.providers.InfuraProvider("rinkeby", INFURA_PROJ_ID)
+const provider3 = new ethers.providers.JsonRpcProvider(`https://rinkeby.infura.io/v3/${INFURA_PROJ_ID}`);
+
 // https://docs.ethers.io/v5/api/signer/#Wallet
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+// get account address of the wallet
+const signer = wallet.connect(provider);
+console.log(signer.address)
 
 // nft contract address
 const nftAddress = process.env.NFT_ADDRESS;
