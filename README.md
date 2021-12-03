@@ -21,10 +21,11 @@ truffle migrate
 
 to mint NFT, run
 ```
-node scripts/mintNft.js
+node scripts/mintNft_web3.js
+node scripts/mintNft_ethers.js
 ```
 
-Sample output is:
+Sample output of mintNft_web3 is:
 ```
 The hash of your transaction is:  0x9dc23c0549219b8f2303d24b04b45e0daba5b578a789581cfd21899cd7c572ff 
 Check Mempool to view the status of your transaction!
