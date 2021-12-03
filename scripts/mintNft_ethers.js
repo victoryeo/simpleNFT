@@ -22,7 +22,7 @@ const signer = wallet.connect(provider);
 console.log(signer.address)
 
 // nft contract address
-const nftAddress = process.env.NFT_ADDRESS;
+const nftAddress = process.env.NFT_CONTRACT_ADDRESS;
 
 //https://docs.ethers.io/v5/api/contract/contract
 const simNFT = new ethers.Contract(
@@ -37,6 +37,8 @@ const main = async () => {
 
     const transaction = await simNFT.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmNNaRsvHaYr72Ce1KXJDdNX4UCxw66yHe7ECyMwvRUiHE")
     console.log(transaction)
+
+    await simNFT.updateNFT(8, "https://gateway.pinata.cloud/ipfs/QmQmGeiSdRYT5hJTURtA5tMj7sMLsAmtAJpH2xTnd37xG2")
   } 
   catch(e) { 
     console.log("something went wrong", e)
