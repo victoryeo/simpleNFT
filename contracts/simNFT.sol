@@ -25,4 +25,10 @@ contract simNFT is ERC721URIStorage, Ownable {
 
         return newItemId;
     }
+
+    function updateNFT(uint256 tokenId, string memory tokenURI)
+        public onlyOwner
+    {
+        _setTokenURI(tokenId, tokenURI);
+    }
 }
