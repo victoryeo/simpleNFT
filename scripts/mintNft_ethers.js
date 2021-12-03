@@ -35,10 +35,11 @@ const simNFT = new ethers.Contract(
 const main = async () => {
   try {
 
-    const transaction = await simNFT.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmNNaRsvHaYr72Ce1KXJDdNX4UCxw66yHe7ECyMwvRUiHE")
+    const transaction = await simNFT.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmTKyyNodQ2FkTsyxBr3UQLMw3Z4RkovfyWVaZostiuqX9")
     console.log(transaction)
 
-    await simNFT.updateNFT(8, "https://gateway.pinata.cloud/ipfs/QmQmGeiSdRYT5hJTURtA5tMj7sMLsAmtAJpH2xTnd37xG2")
+    // update metadata uri
+    await simNFT.updateNFT(7, "https://gateway.pinata.cloud/ipfs/QmZKHPQU9HW1QUSMHYJNEkNJGSUTYHnobw2ZxD7S3g1QJ1")
   } 
   catch(e) { 
     console.log("something went wrong", e)
