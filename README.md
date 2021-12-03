@@ -1,6 +1,6 @@
 # NFT with hardhat and truffle
 
-This project demonstrates a basic NFT with Hardhat and Truffle. 
+This project demonstrates a basic NFT with Hardhat and Truffle on Rinkeby and local testnet. 
 
 hardhat
 ```shell
