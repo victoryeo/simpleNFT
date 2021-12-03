@@ -21,7 +21,7 @@ const web3 = new Web3(provider);
 const nftContract = require("../artifacts/contracts/simNFT.sol/simNFT.json");
 
 // nft contract address
-const nftAddress = process.env.NFT_ADDRESS;
+const nftAddress = process.env.NFT_CONTRACT_ADDRESS;
 
 let nftInst = new web3.eth.Contract(
   nftContract.abi, nftAddress
@@ -70,5 +70,5 @@ async function mintNFT(tokenURI) {
 
 mintNFT(
   // metadata hashcode QmYueiuRNmL4....is from pinata
-  "https://gateway.pinata.cloud/ipfs/QmNNaRsvHaYr72Ce1KXJDdNX4UCxw66yHe7ECyMwvRUiHE"
+  "https://gateway.pinata.cloud/ipfs/QmbusPfav5k4R6hLg76PTTWH16r1ekAYKSg5vaSuKR9mQD"
 )
