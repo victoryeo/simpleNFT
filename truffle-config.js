@@ -48,11 +48,12 @@ module.exports = {
     },
     rinkeby: {
       provider: () => new HDWalletProvider(
-        mnemonic, `https://rinkeby.infura.io/v3/2c1f4e69f3e641d88e2d67ac235dc88c`
+        mnemonic, `wss://rinkeby.infura.io/ws/v3/2c1f4e69f3e641d88e2d67ac235dc88c`
       ),
       network_id: 4,       
       gas: 5500000,        
-      confirmations: 2,    
+      //confirmations: 2,
+      networkCheckTimeout: 1000000,    
       timeoutBlocks: 200, 
       skipDryRun: true     
     },
