@@ -35,8 +35,14 @@ const simNFT = new ethers.Contract(
 const main = async () => {
   try {
 
+    const gasPrice = await provider.getGasPrice()
+    console.log(gasPrice.toString())
+
     const transaction = await simNFT.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmTKyyNodQ2FkTsyxBr3UQLMw3Z4RkovfyWVaZostiuqX9")
     console.log(transaction)
+
+    //const estimation = await simNFT.estimateGas.mintNFT(process.env.PUBLIC_KEY, "https://gateway.pinata.cloud/ipfs/QmTKyyNodQ2FkTsyxBr3UQLMw3Z4RkovfyWVaZostiuqX9")
+    //console.log(estimation.toString())
 
     // update metadata uri
     await simNFT.updateNFT(7, "https://gateway.pinata.cloud/ipfs/QmZKHPQU9HW1QUSMHYJNEkNJGSUTYHnobw2ZxD7S3g1QJ1")
