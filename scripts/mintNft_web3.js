@@ -37,7 +37,7 @@ async function mintNFT(tokenURI) {
   const nonce = await web3.eth.getTransactionCount(accounts[0], "latest")
   //console.log(nonce)
 
-  //const tokenId = await nftInst.methods.mintNFT(accounts[0], tokenURI)
+  //const tokenId = await nftInst.methods.mintNFT(accounts[0], tokenURI).send({from: accounts[0]})
   //console.log(tokenId)
 
   //the transaction
